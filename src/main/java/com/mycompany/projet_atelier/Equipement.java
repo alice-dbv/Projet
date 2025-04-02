@@ -8,9 +8,10 @@ package com.mycompany.projet_atelier;
  *
  * @author lisaa
  */
-public class Equipement {
+public abstract class Equipement {
    private String refOperation;
    private String dEquipement;
+   private String refEquipement ;
 
     public String getRefOperation() {
         return refOperation;
@@ -20,6 +21,12 @@ public class Equipement {
         return dEquipement;
     }
 
+    public String getRefEquipement() {
+        return refEquipement;
+    }
+    
+    
+
     public void setRefOperation(String refOperation) {
         this.refOperation = refOperation;
     }
@@ -28,10 +35,12 @@ public class Equipement {
         this.dEquipement = dEquipement;
     }
 
-    public Equipement(String refOperation, String dEquipement) {
-        this.refOperation = refOperation;
-        this.dEquipement = dEquipement;
+    public void setRefEquipement(String refEquipement) {
+        this.refEquipement = refEquipement;
     }
+    
+
+    
    
    
 }

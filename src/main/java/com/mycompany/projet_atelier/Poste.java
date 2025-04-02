@@ -10,17 +10,15 @@ import java.util.ArrayList;
  *
  * @author lisaa
  */
-public class Poste {
-    private String refPoste;
-    private String dPoste;
+public class Poste extends Equipement {
     private ArrayList<Machine> listeMachine;
 
     public String getRefPoste() {
-        return refPoste;
+        return super.getRefEquipement();
     }
 
     public String getdPoste() {
-        return dPoste;
+        return super.getdEquipement();
     }
 
     public ArrayList<Machine> getListeMachine() {
@@ -28,20 +26,18 @@ public class Poste {
     }
 
     public void setRefPoste(String refPoste) {
-        this.refPoste = refPoste;
+        super.setRefEquipement(refPoste);
     }
 
     public void setdPoste(String dPoste) {
-        this.dPoste = dPoste;
+        super.setdEquipement(dPoste);
     }
 
     public void setListeMachine(ArrayList<Machine> listeMachine) {
         this.listeMachine = listeMachine;
     }
 
-    public Poste(String refPoste, String dPoste, ArrayList<Machine> listeMachine) {
-        this.refPoste = refPoste;
-        this.dPoste = dPoste;
+    public Poste(ArrayList<Machine> listeMachine) {
         this.listeMachine = listeMachine;
     }
     
@@ -52,7 +48,7 @@ public class Poste {
         
     }
     
-public void supprimerMachine(){
-    
-}
+    public void supprimerMachine(){
+        
+    }
 }

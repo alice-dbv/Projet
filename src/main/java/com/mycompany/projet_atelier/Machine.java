@@ -8,9 +8,7 @@ package com.mycompany.projet_atelier;
  *
  * @author lisaa
  */
-public class Machine {
-    private  String refMachine;
-   private String dMachine;
+public class Machine extends Equipement {
    private float x;
    private float y;
    private float cout;
@@ -20,11 +18,11 @@ public class Machine {
    private Operation operations;
 
     public String getRefMachine() {
-        return refMachine;
+        return super.getRefEquipement();
     }
 
     public String getdMachine() {
-        return dMachine;
+        return super.getdEquipement();
     }
 
     public float getX() {
@@ -56,11 +54,11 @@ public class Machine {
     }
 
     public void setRefMachine(String refMachine) {
-        this.refMachine = refMachine;
+        super.setRefEquipement(refMachine);
     }
 
     public void setdMachine(String dMachine) {
-        this.dMachine = dMachine;
+        super.setdEquipement(dMachine);
     }
 
     public void setX(float x) {
@@ -91,9 +89,7 @@ public class Machine {
         this.operations = operations;
     }
 
-    public Machine(String refMachine, String dMachine, float x, float y, float cout, String type, float t, String etat, Operation operations) {
-        this.refMachine = refMachine;
-        this.dMachine = dMachine;
+    public Machine(float x, float y, float cout, String type, float t, String etat, Operation operations) {
         this.x = x;
         this.y = y;
         this.cout = cout;
@@ -102,8 +98,11 @@ public class Machine {
         this.etat = etat;
         this.operations = operations;
     }
+
+  
    
    public void afficheMachine(){
+       
 }
    public boolean estDisponible (){
        
