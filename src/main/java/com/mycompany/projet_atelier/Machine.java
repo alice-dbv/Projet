@@ -103,5 +103,23 @@ public class Machine {
         this.operations = operations;
     }
    
-   
+   public void afficheMachine(){
+}
+   public boolean estDisponible (){
+       
+        return false;
+       
+   }
+   public boolean estOperationnel(){
+    
+        return false;
+    
+}
+   public void modifierMachine(){
+       
+      
+   }
+   public void supprimerMachine(){
+       
+   }
 }
