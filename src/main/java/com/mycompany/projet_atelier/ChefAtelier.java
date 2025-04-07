@@ -9,5 +9,5 @@ package com.mycompany.projet_atelier;
  * @author alicedeboever
  */
 public class ChefAtelier {
-    
+    // faut importer les noms prenoms et code de la classe abstraite personne 
 }
