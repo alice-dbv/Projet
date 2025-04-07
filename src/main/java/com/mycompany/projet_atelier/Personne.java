@@ -8,7 +8,7 @@ package com.mycompany.projet_atelier;
  *
  * @author alicedeboever
  */
-public class Personne {
+public abstract class Personne {
     private float code ;
     private String nom ;
     private String prenom ;
@@ -36,10 +36,6 @@ public class Personne {
         this.prenom = prenom;
     }
 
-    public Personne(float code, String nom, String prenom) {
-        this.code = code;
-        this.nom = nom;
-        this.prenom = prenom;
-    }
+    
     
 }
