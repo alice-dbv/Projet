@@ -12,5 +12,4 @@ public class ProduitsFinis {
    
     public void afficher(){
     }
-    }
 }

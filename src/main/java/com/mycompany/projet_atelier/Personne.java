@@ -36,6 +36,14 @@ public abstract class Personne {
         this.prenom = prenom;
     }
 
-    
+    public Personne(float code, String nom, String prenom) {
+        this.code = code;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public void afficher(){
+        System.out.println(this.prenom+", "+ this.nom+"code d'identification:"+this.code);
+    }
     
 }
