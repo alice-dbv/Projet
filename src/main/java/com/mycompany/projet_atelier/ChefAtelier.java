@@ -9,5 +9,12 @@ package com.mycompany.projet_atelier;
  * @author alicedeboever
  */
 public class ChefAtelier extends Personne {
-    // faut importer les noms prenoms et code de la classe abstraite personne 
+    // faut importer les noms prenoms et code de la classe abstraite personne
+    public ChefAtelier(float code, String nom, String prenom) {
+        super(code, nom, prenom);
+    }
+    @Override
+    public void afficher() {
+        System.out.println("Operateur: "+this.getPrenom()+", "+this.getNom()+",code: "+this.getCode());  
+    }
 }

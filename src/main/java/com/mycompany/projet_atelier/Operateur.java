@@ -8,7 +8,7 @@ package com.mycompany.projet_atelier;
  *
  * @author alicedeboever
  */
-public class Operateur {
+public class Operateur extends Personne{
     
     private String competance ;
     private boolean disponible ; 
@@ -30,13 +30,20 @@ public class Operateur {
         this.disponible = disponible;
     }
 
-    public Operateur(String competance, boolean disponible) {
+    public Operateur(String competance, boolean disponible, float code, String nom, String prenom) {
+        super(code, nom, prenom);
         this.competance = competance;
         this.disponible = disponible;
     }
-
-    
-    
-    
+    @Override
+    public void afficher() {
+        System.out.println("Operateur: "+this.getPrenom()+", "+this.getNom()+",code: "+this.getCode()+",competence"+this.competance);
+        if(disponible){
+            System.out.println("statut:disponible");
+        }else{
+            System.out.println("statut: indisponible");
+        }     
+    }
+   
     
 }
