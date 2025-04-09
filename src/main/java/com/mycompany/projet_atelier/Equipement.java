@@ -41,6 +41,7 @@ public abstract class Equipement {
     
 
     public void afficher(){
+        System.out.println("Equipement: désignation "+this.dEquipement+", référence "+this.refEquipement+", operation "+this.refOperation);
     }
    
 }
