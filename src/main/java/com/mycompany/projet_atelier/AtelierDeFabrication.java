@@ -4,10 +4,37 @@
  */
 package com.mycompany.projet_atelier;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alicedeboever
  */
 public class AtelierDeFabrication {
-    
+    private String nom;
+    private ArrayList<Equipement> listEquipement;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public ArrayList<Equipement> getListEquipement() {
+        return listEquipement;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setListEquipement(ArrayList<Equipement> listEquipement) {
+        this.listEquipement = listEquipement;
+    }
+
+    public AtelierDeFabrication(String nom, ArrayList<Equipement> listEquipement) {
+        this.nom = nom;
+        this.listEquipement = listEquipement;
+    }
+
+
+
 }

@@ -13,8 +13,6 @@ public class Operateur {
     private String competance ;
     private boolean disponible ; 
 
-    
-
     public String getCompetance() {
         return competance;
     }
@@ -23,7 +21,6 @@ public class Operateur {
         return disponible;
     }
 
-   
 
     public void setCompetance(String competance) {
         this.competance = competance;
