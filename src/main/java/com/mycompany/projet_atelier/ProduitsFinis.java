@@ -11,6 +11,7 @@ package com.mycompany.projet_atelier;
 public class ProduitsFinis {
    
     public void afficher(){
+    
     }
-    }
+}
 }
