@@ -42,7 +42,11 @@ public class Poste extends Equipement {
     }
     
     public void afficherPoste(){
-    
+        super.afficher();
+        System.out.println("Liste des Machines de ce poste:");
+        for (Machine i:this.listeMachine){
+            i.afficheMachine();
+        }
 }
     public void modifierMachine(){
         

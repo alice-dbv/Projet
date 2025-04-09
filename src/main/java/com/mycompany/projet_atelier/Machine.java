@@ -112,7 +112,9 @@ public class Machine extends Equipement {
   
    
    public void afficheMachine(){
-       
+       super.afficher();
+       System.out.println("Machine de type"+this.type+", emplacement:"+this.x+","+this.y+"état:"+this.etat+"disponibilité:"+this.dispo);
+       System.out.println("Operations:"+this.operations+"coût:"+this.cout+"temps t:"+this.t);
 }
    public boolean estDisponible (){
        
