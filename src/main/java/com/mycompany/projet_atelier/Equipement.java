@@ -40,7 +40,7 @@ public abstract class Equipement {
     }
     
 
-    
-   
+    public void afficher(){
+    }
    
 }

@@ -10,6 +10,7 @@ package com.mycompany.projet_atelier;
  */
 public class Machine extends Equipement {
    private float x;
+   private int dispo;
    private float y;
    private float cout;
    private String type;
@@ -19,6 +20,10 @@ public class Machine extends Equipement {
 
     public String getRefMachine() {
         return super.getRefEquipement();
+    }
+
+    public int getDispo() {
+        return dispo;
     }
 
     public String getdMachine() {
@@ -61,6 +66,10 @@ public class Machine extends Equipement {
         super.setdEquipement(dMachine);
     }
 
+    public void setDispo(int dispo) {
+        this.dispo = dispo;
+    }
+
     public void setX(float x) {
         this.x = x;
     }
@@ -89,7 +98,7 @@ public class Machine extends Equipement {
         this.operations = operations;
     }
 
-    public Machine(float x, float y, float cout, String type, float t, String etat, Operation operations) {
+    public Machine(float x, float y, float cout, String type, float t, String etat, Operation operations, int dispo) {
         this.x = x;
         this.y = y;
         this.cout = cout;
@@ -97,6 +106,7 @@ public class Machine extends Equipement {
         this.t = t;
         this.etat = etat;
         this.operations = operations;
+        this.dispo = dispo;
     }
 
   
