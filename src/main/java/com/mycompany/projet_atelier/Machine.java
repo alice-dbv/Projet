@@ -111,8 +111,17 @@ public String getRefMachine(){
         System.out.println("Operations:"+this.operations+"cout"+this.cout+"temps t:"+this.t);
     }
     
-    public void modifierMachine(){
-        
+    public void modifierMachine(float x, float y, float cout, String type, float t, String etat, Operation operations, int dispo){
+        if (x!=0){
+            this.x=x;
+        }
+        if (y != 0) this.y = y;
+        if (cout != 0) this.cout = cout;
+        if (type != null && !type.isEmpty()) this.type = type;
+        if (t != 0) this.t = t;
+        if (etat != null && !etat.isEmpty()) this.etat = etat;
+        if (operations!=null) this.operations=operations;
+        if (dispo != 0) this.dispo = dispo;
     }
    public boolean estDisponible(){
      return false;  

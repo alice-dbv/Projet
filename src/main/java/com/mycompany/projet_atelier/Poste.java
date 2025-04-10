@@ -48,11 +48,11 @@ public class Poste extends Equipement {
             i.afficheMachine();
         }
 }
-    public void modifierMachine(){
+    public void modifierPoste(){
         
     }
     
-    public void supprimerMachine(){
+    public void supprimerPoste(){
         
     }
 }
