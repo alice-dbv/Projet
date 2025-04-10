@@ -49,7 +49,7 @@ public class Gamme {
         
     }
     
-    public void modifiergamme(){
+    public void modifierGamme(){
         
     }
     

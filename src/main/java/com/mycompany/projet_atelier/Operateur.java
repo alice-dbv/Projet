@@ -13,6 +13,10 @@ public class Operateur extends Personne{
     private String competance ;
     private boolean disponible ; 
 
+    public Operateur(float code, String nom, String prenom) {
+        super(code, nom, prenom);
+    }
+    
     public String getCompetance() {
         return competance;
     }

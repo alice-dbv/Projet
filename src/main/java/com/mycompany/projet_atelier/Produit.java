@@ -35,11 +35,18 @@ public class Produit {
     }
     
 public void afficheProduit(){
-    
+    System.out.println("Produit: code "+this.codeProduit+", désignation "+this.dproduit);
 }
-public void modifierProduit(){
-    
-}
+public void modifierProduit(float nouveauCodeProduit, String nouveauDProduit) {
+        if (nouveauCodeProduit>0) {
+            this.codeProduit = nouveauCodeProduit;
+        } else {
+        }
+        if (nouveauDProduit != null && !nouveauDProduit.isEmpty()) {
+            this.dproduit = nouveauDProduit;
+        }
+    }
+
 public void supprimerProduit(){
     
 }
