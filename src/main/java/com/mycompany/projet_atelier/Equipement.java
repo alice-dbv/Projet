@@ -25,7 +25,11 @@ public abstract class Equipement {
         return refEquipement;
     }
     
-    
+    public Equipement(String refEquipement, String dEquipement, String refOperation) {
+        this.refEquipement = refEquipement;
+        this.dEquipement = dEquipement;
+        this.refOperation=refOperation;
+    }
 
     public void setRefOperation(String refOperation) {
         this.refOperation = refOperation;

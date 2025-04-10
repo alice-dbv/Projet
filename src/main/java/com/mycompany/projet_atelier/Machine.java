@@ -17,8 +17,13 @@ public class Machine extends Equipement {
     private String etat;
     private Operation operations;
     private String type;
+    private Poste poste;
+    private String refMachine;
+    private String dMachine;
 
-    public Machine(float x, int dispo, float y, float cout, float t, String etat, Operation operations, String type) {
+    
+    public Machine(String refMachine, String dMachine, String refOperation, float x, int dispo, float y, float cout, float t, String etat, Operation operations, String type,Poste poste) {
+       super(refMachine, dMachine,refOperation);
         this.x = x;
         this.dispo = dispo;
         this.y = y;
@@ -27,6 +32,7 @@ public class Machine extends Equipement {
         this.etat = etat;
         this.operations = operations;
         this.type = type;
+        this.poste=null;
     }
 public String getRefMachine(){
     return super.getRefEquipement();
@@ -36,6 +42,10 @@ public String getRefMachine(){
     }
     public float getX() {
         return x;
+    }
+
+    public Poste getPoste() {
+        return poste;
     }
 
     public int getDispo() {
@@ -75,6 +85,10 @@ public String getRefMachine(){
     }
     public void setX(float x) {
         this.x = x;
+    }
+
+    public void setPoste(Poste poste) {
+        this.poste = poste;
     }
 
     public void setDispo(int dispo) {
@@ -134,11 +148,17 @@ public String getRefMachine(){
         return false;
     }
    public void supprimerMachine(){
-       
+       if (poste!= null){
+           poste.modifierPoste(poste,this,false);
+           System.out.println("Machine " + this.refMachine + " supprimée du poste.");
+        } else {
+            System.out.println("Erreur : La machine n'est pas associée à un poste.");
+        }
+    }
+    
    } 
     
     
     
     
-}
 
