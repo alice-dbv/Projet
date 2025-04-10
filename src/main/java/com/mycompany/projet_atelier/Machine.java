@@ -111,7 +111,11 @@ public String getRefMachine(){
         System.out.println("Operations:"+this.operations+"cout"+this.cout+"temps t:"+this.t);
     }
     
-    public void modifierMachine(float x, float y, float cout, String type, float t, String etat, Operation operations, int dispo){
+    public void modifierMachine(float x, float y, float cout, String type, float t, String etat, Operation operations, int dispo,String refMachine,String dMachine){
+        if (refMachine != null && !refMachine.isEmpty()) {
+        super.setRefEquipement(refMachine);}
+       if (dMachine != null && !dMachine.isEmpty()) {
+        super.setdEquipement(dMachine);}
         if (x!=0){
             this.x=x;
         }
