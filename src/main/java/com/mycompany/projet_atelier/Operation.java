@@ -53,5 +53,16 @@ public class Operation {
         this.dureeOperation = dureeOperation;
     }
     
-    
+   // Méthode pour calculer le coût d'une opération en fonction de l'équipement utilisé
+    public float calculerCout(Equipement equipement) {
+        if (equipement != null && equipement.getRefEquipement().equals(refEquipement)) {
+            //return dureeOperation * equipement.getCoutHoraire();
+        }
+        return 0; // Équipement non trouvé ou non correspondant
+    }
+    public void afficheOperation() {
+        System.out.println("Opération [Référence: " + refOperation + ", Désignation: " + dOperation + "]");
+        System.out.println("Équipement utilisé: " + refEquipement);
+        System.out.println("Durée: " + dureeOperation + " h");
+    }
 }

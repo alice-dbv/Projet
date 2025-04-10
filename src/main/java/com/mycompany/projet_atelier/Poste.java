@@ -12,49 +12,32 @@ import java.util.ArrayList;
  */
 public class Poste extends Equipement {
     private ArrayList<Machine> listeMachine;
-    private String dPoste;
+    //private String dPoste;
     private String refPoste;
-
-    public String getRefPoste() {
-        return super.getRefEquipement();
-    }
-
-    public String getdPoste() {
-        return super.getdEquipement();
-    }
 
     public ArrayList<Machine> getListeMachine() {
         return listeMachine;
     }
-
-    public void setRefPoste(String refPoste) {
-        super.setRefEquipement(refPoste);
-    }
-
-    public void setdPoste(String dPoste) {
-        super.setdEquipement(dPoste);
-    }
-
-    public void setListeMachine(ArrayList<Machine> listeMachine) {
+      public void setListeMachine(ArrayList<Machine> listeMachine) {
         this.listeMachine = listeMachine;
     }
 
-    public Poste(ArrayList<Machine> listeMachine, String dPoste, String refPoste, String refOperation) {
-        super(dPoste, refPoste, refOperation);
+    public Poste(ArrayList<Machine> listeMachine, String dPoste, String refPoste) {
+        super(dPoste, refPoste);
         this.listeMachine = listeMachine;
     }
     
     public void afficherPoste(){
-        super.afficher();
+     //   super.afficher();
         System.out.println("Liste des Machines de ce poste:");
         for (Machine i:this.listeMachine){
-            i.afficheMachine();
+    //        i.afficheMachine();
         }
 }
     public void modifierPoste(Poste poste, Machine machine, boolean ajouter){
        if (ajouter){
            poste.getListeMachine().add(machine); 
-           System.out.println("Machine ajoutée au poste");
+           System.out.println("Machine"+ machine.getRefEquipement() + " ajoutée au poste " );
             }
        else{
            if (poste.getListeMachine().contains(machine)){
@@ -65,6 +48,7 @@ public class Poste extends Equipement {
            }
        }      
     }
+    
     
     public void supprimerPoste(){
         for (Machine machine : listeMachine) {
@@ -77,7 +61,16 @@ public class Poste extends Equipement {
         // Après la suppression des machines, le poste peut être supprimé de l'application (pas d'autre action ici)
         System.out.println("Le poste " + refPoste + " a été supprimé.");
     }
-    
+   
+    //@Override
+    public float getCoutHoraire() {
+        // Le coût horaire d'un poste est la somme des coûts horaires de ses machines
+        float coutTotal = 0;
+        for (Machine m : listeMachine) {
+            coutTotal += m.getCout();
+        }
+        return coutTotal;
+    } 
     
 }
     

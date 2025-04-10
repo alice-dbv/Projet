@@ -9,14 +9,10 @@ package com.mycompany.projet_atelier;
  * @author lisaa
  */
 public abstract class Equipement {
-   private String refOperation;
-   private String dEquipement;
+  private String dEquipement;
    private String refEquipement ;
 
-    public String getRefOperation() {
-        return refOperation;
-    }
-
+    
     public String getdEquipement() {
         return dEquipement;
     }
@@ -25,16 +21,12 @@ public abstract class Equipement {
         return refEquipement;
     }
     
-    public Equipement(String refEquipement, String dEquipement, String refOperation) {
+    public Equipement(String refEquipement, String dEquipement) {
         this.refEquipement = refEquipement;
         this.dEquipement = dEquipement;
-        this.refOperation=refOperation;
-    }
+            }
 
-    public void setRefOperation(String refOperation) {
-        this.refOperation = refOperation;
-    }
-
+    
     public void setdEquipement(String dEquipement) {
         this.dEquipement = dEquipement;
     }
@@ -44,8 +36,9 @@ public abstract class Equipement {
     }
     
 
-    public void afficher(){
-        System.out.println("Equipement: désignation "+this.dEquipement+", référence "+this.refEquipement+", operation "+this.refOperation);
+    public void afficheEquipement(){
+        System.out.println("Equipement: désignation "+this.dEquipement+", référence "+this.refEquipement+", operation ");
     }
    
+    
 }

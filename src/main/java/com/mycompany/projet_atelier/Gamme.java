@@ -45,29 +45,68 @@ public class Gamme {
         this.listeEquipement = listeEquipement;
     }
     
-    public void creerGamme(){
-        
+    public void creerGamme(String refGamme) {
+        this.refGamme = refGamme;
+        this.listeOperation.clear();
+        this.listeEquipement.clear();
+        System.out.println("Nouvelle gamme créée avec la référence: " + refGamme);
     }
     
-    public void modifierGamme(){
-        
+    public void modifierGamme(String newRefGamme) {
+        this.refGamme = newRefGamme;
+        System.out.println("Référence de la gamme modifiée avec succès!");
+    
     }
     
     public void supprimmerGamme(){
-        
+     this.refGamme = null;
+        this.listeOperation.clear();
+        this.listeEquipement.clear();
+        System.out.println("Gamme supprimée avec succès!");   
     }
     
     public void afficheGamme(){
-        
+         System.out.println("Gamme [Référence: " + refGamme + "]");
+        System.out.println("Liste des équipements nécessaires (" + listeEquipement.size() + "):");
+        for (Equipement e : listeEquipement) {
+            e.afficheEquipement();
+            System.out.println();
+    }
+        System.out.println("Liste des opérations (" + listeOperation.size() + "):");
+        for (int i = 0; i < listeOperation.size(); i++) {
+            System.out.println("Étape " + (i+1) + ":");
+            listeOperation.get(i).afficheOperation();
+            System.out.println();
+        }
+        System.out.println("Coût total de la gamme: " + coutGamme() + " €");
+        System.out.println("Durée totale de la gamme: " + dureeGamme() + " h");
     }
     
     public float coutGamme(){
-        return 4;
+        float coutTotal = 0;
+        
+        // Pour chaque opération, trouver l'équipement correspondant et calculer le coût
+        for (Operation op : listeOperation) {
+            for (Equipement eq : listeEquipement) {
+                if (eq.getRefEquipement().equals(op.getRefEquipement())) {
+                    coutTotal += op.calculerCout(eq);
+                    break;
+                }
+            }
+        }
+        
+        return coutTotal;
     }
     
     public float dureeGamme(){
-        return 3;
+        float dureeTotal = 0;
         
+        // Somme des durées de toutes les opérations
+        for (Operation op : listeOperation) {
+            dureeTotal += op.getDureeOperation();
+        }
+        
+        return dureeTotal;
     }
 
 }

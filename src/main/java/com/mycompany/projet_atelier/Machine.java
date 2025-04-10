@@ -9,21 +9,26 @@ package com.mycompany.projet_atelier;
  * @author lisaa
  */
 public class Machine extends Equipement {
-    private float x;
-    private int dispo;
-    private float y;
+    private String type;
     private float cout;
+    private float x;
+    private float y;
+    private boolean dispo;
+    
     private float t;
     private String etat;
     private Operation operations;
-    private String type;
     private Poste poste;
     private String refMachine;
-    private String dMachine;
+    //private String dMachine;
 
+    //public Machine(){
+      //  super();
+        //this.dispo=true;
+         //}
     
-    public Machine(String refMachine, String dMachine, String refOperation, float x, int dispo, float y, float cout, float t, String etat, Operation operations, String type,Poste poste) {
-       super(refMachine, dMachine,refOperation);
+    public Machine(String refMachine, String dMachine, float x, boolean dispo, float y, float cout, float t, String etat, Operation operations, String type,Poste poste) {
+       super(refMachine, dMachine);
         this.x = x;
         this.dispo = dispo;
         this.y = y;
@@ -34,12 +39,7 @@ public class Machine extends Equipement {
         this.type = type;
         this.poste=null;
     }
-public String getRefMachine(){
-    return super.getRefEquipement();
-}
-    public String getdMachine(){
-        return super.getdEquipement();
-    }
+
     public float getX() {
         return x;
     }
@@ -48,7 +48,7 @@ public String getRefMachine(){
         return poste;
     }
 
-    public int getDispo() {
+    public boolean estDisponible() {
         return dispo;
     }
 
@@ -76,14 +76,7 @@ public String getRefMachine(){
         return type;
     }
 
-    public void setRefMachine (String refMachine){
-        super.setRefEquipement(refMachine);
-    }
-    
-    public void setdMachine (String dMachine){
-        super.setdEquipement(dMachine);
-    }
-    public void setX(float x) {
+       public void setX(float x) {
         this.x = x;
     }
 
@@ -91,7 +84,7 @@ public String getRefMachine(){
         this.poste = poste;
     }
 
-    public void setDispo(int dispo) {
+    public void setDispo(boolean dispo) {
         this.dispo = dispo;
     }
 
@@ -119,31 +112,30 @@ public String getRefMachine(){
         this.type = type;
     }
     
-    public void afficheMachine(){
-        super.afficher();
-        System.out.println("Machine de type:" +this.type+"localisation "+this.x+","+this.y+"état:"+this.etat+"disponibilité:"+this.dispo);
-        System.out.println("Operations:"+this.operations+"cout"+this.cout+"temps t:"+this.t);
+    
+    //public void afficheMachine(){
+    //    super.afficher();
+      //  System.out.println("Machine de type:" +this.type+"localisation: "+this.x+","+this.y+"état:"+this.etat+"disponibilité:"+this.dispo);
+        //System.out.println("Operations:"+this.operations+"cout horaire "+this.cout+"€/h, temps t:"+this.t);
+   // }
+    
+    public void modifierMachine(float newx, float newy, float newcout, String newtype, float newt, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
+        if (newrefMachine != null && !newrefMachine.isEmpty()) {
+        super.setRefEquipement(newrefMachine);}
+       if (newdMachine != null && !newdMachine.isEmpty()) {
+        super.setdEquipement(newdMachine);}
+        if (newx!=0){
+            this.x=newx;
+        }
+        if (newy != 0) this.y = newy;
+        if (newcout != 0) this.cout = newcout;
+        if (newtype != null && !newtype.isEmpty()) this.type = newtype;
+        if (newt != 0) this.t = newt;
+        if (newetat != null && !newetat.isEmpty()) this.etat = newetat;
+        if (null!=newoperations) this.operations=newoperations;
+        System.out.println("Machine modifiée !");
     }
     
-    public void modifierMachine(float x, float y, float cout, String type, float t, String etat, Operation operations, int dispo,String refMachine,String dMachine){
-        if (refMachine != null && !refMachine.isEmpty()) {
-        super.setRefEquipement(refMachine);}
-       if (dMachine != null && !dMachine.isEmpty()) {
-        super.setdEquipement(dMachine);}
-        if (x!=0){
-            this.x=x;
-        }
-        if (y != 0) this.y = y;
-        if (cout != 0) this.cout = cout;
-        if (type != null && !type.isEmpty()) this.type = type;
-        if (t != 0) this.t = t;
-        if (etat != null && !etat.isEmpty()) this.etat = etat;
-        if (operations!=null) this.operations=operations;
-        if (dispo != 0) this.dispo = dispo;
-    }
-   public boolean estDisponible(){
-     return false;  
-   } 
     public boolean estOperationnel(){
         return false;
     }
