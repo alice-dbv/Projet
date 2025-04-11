@@ -13,9 +13,6 @@ public class Operateur extends Personne{
     private String competance ;
     private boolean disponible ; 
 
-    public Operateur(float code, String nom, String prenom) {
-        super(code, nom, prenom);
-    }
     
     public String getCompetance() {
         return competance;
@@ -33,7 +30,7 @@ public class Operateur extends Personne{
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-
+//constructeur
     public Operateur(String competance, boolean disponible, float code, String nom, String prenom) {
         super(code, nom, prenom);
         this.competance = competance;
@@ -41,11 +38,11 @@ public class Operateur extends Personne{
     }
     @Override
     public void afficher() {
-        System.out.println("Operateur: "+this.getPrenom()+", "+this.getNom()+",code: "+this.getCode()+",competence"+this.competance);
+        System.out.print("Operateur: "+this.getPrenom()+" "+this.getNom()+",code: "+this.getCode()+",competence "+this.competance);
         if(disponible){
-            System.out.println("statut:disponible");
+            System.out.println(", statut:disponible");
         }else{
-            System.out.println("statut: indisponible");
+            System.out.println(", statut: indisponible");
         }     
     }
    

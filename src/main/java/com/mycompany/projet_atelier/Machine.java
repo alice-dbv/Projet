@@ -27,7 +27,7 @@ public class Machine extends Equipement {
         //this.dispo=true;
          //}
     
-    public Machine(String refMachine, String dMachine, float x, boolean dispo, float y, float cout, float t, String etat, Operation operations, String type,Poste poste) {
+    public Machine(String refMachine, String dMachine, float x, float y, boolean dispo, float cout, float t, String etat, Operation operations, String type,Poste poste) {
        super(refMachine, dMachine);
         this.x = x;
         this.dispo = dispo;
@@ -113,11 +113,13 @@ public class Machine extends Equipement {
     }
     
     
-    //public void afficheMachine(){
-    //    super.afficher();
-      //  System.out.println("Machine de type:" +this.type+"localisation: "+this.x+","+this.y+"état:"+this.etat+"disponibilité:"+this.dispo);
-        //System.out.println("Operations:"+this.operations+"cout horaire "+this.cout+"€/h, temps t:"+this.t);
-   // }
+    public void afficheMachine(){
+     super.afficheEquipement();
+      System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etat+", disponibilite:"+this.dispo);
+      System.out.print("Operation de cette machine:");
+      operations.afficheOperation();
+      System.out.println("cout horaire "+this.cout+"euro/h, temps t:"+this.t);
+   }
     
     public void modifierMachine(float newx, float newy, float newcout, String newtype, float newt, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
         if (newrefMachine != null && !newrefMachine.isEmpty()) {

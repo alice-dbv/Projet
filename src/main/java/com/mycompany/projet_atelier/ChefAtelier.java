@@ -15,6 +15,6 @@ public class ChefAtelier extends Personne {
     }
     @Override
     public void afficher() {
-        System.out.println("Operateur: "+this.getPrenom()+", "+this.getNom()+",code: "+this.getCode());  
+        System.out.println("Ched d'atelier: "+this.getPrenom()+", "+this.getNom()+",code: "+this.getCode());  
     }
 }

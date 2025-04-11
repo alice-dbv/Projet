@@ -61,8 +61,8 @@ public class Operation {
         return 0; // Équipement non trouvé ou non correspondant
     }
     public void afficheOperation() {
-        System.out.println("Opération [Référence: " + refOperation + ", Désignation: " + dOperation + "]");
-        System.out.println("Équipement utilisé: " + refEquipement);
-        System.out.println("Durée: " + dureeOperation + " h");
+        System.out.println("Operation [Reference: " + refOperation + ", Designation: " + dOperation + "]");
+        System.out.println("Equipement utilise: " + refEquipement);
+        System.out.println("Duree: " + dureeOperation + " h");
     }
 }

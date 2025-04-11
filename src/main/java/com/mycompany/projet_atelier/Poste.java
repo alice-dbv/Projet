@@ -27,11 +27,11 @@ public class Poste extends Equipement {
         this.listeMachine = listeMachine;
     }
     
-    public void afficherPoste(){
-     //   super.afficher();
+    public void affichePoste(){
+        super.afficheEquipement();
         System.out.println("Liste des Machines de ce poste:");
         for (Machine i:this.listeMachine){
-    //        i.afficheMachine();
+            i.afficheMachine();
         }
 }
     public void modifierPoste(Poste poste, Machine machine, boolean ajouter){
