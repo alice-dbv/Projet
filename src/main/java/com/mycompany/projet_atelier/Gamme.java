@@ -89,14 +89,11 @@ public class Gamme {
         for (Operation op : listeOperation) {
             for (Equipement eq : listeEquipement) {
                 if (eq.getRefEquipement().equals(op.getRefEquipement())) {
-                    System.out.println(eq.getRefEquipement());
-                    System.out.println(op.calculerCout(eq));
                     coutTotal += op.calculerCout(eq);
                     break;
                 }
             }
-        }
-        
+        }  
         return coutTotal;
     }
     
