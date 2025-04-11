@@ -10,28 +10,19 @@ package com.mycompany.projet_atelier;
  */
 public class Machine extends Equipement {
     private String type;
-    private float cout;
     private float x;
     private float y;
-    private boolean dispo;   
-    //private float t;
+    private boolean dispo;
     private String etat;
     private Operation operations;
     private Poste poste;
-    private String refMachine;
-    //private String dMachine;
 
-    //public Machine(){
-      //  super();
-        //this.dispo=true;
-         //}
-    
+
     public Machine(String refMachine, String dMachine, float x, float y, boolean dispo, float cout, String etat, Operation operations, String type,Poste poste) {
        super(refMachine, dMachine, cout);
         this.x = x;
         this.dispo = dispo;
         this.y = y;
-        this.cout = cout;
         this.etat = etat;
         this.operations = operations;
         this.type = type;
@@ -100,7 +91,6 @@ public class Machine extends Equipement {
       System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etat+", disponibilite:"+this.dispo);
       System.out.print("Operation de cette machine:");
       operations.afficheOperation();
-      System.out.println("cout horaire "+this.cout+"euro/h");
    }
     
     public void modifierMachine(float newx, float newy, float newcout, String newtype, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
@@ -126,7 +116,7 @@ public class Machine extends Equipement {
    public void supprimerMachine(){
        if (poste!= null){
            poste.modifierPoste(poste,this,false);
-           System.out.println("Machine " + this.refMachine + " supprimée du poste.");
+           System.out.println("Machine " + super.getRefEquipement() + " supprimée du poste.");
         } else {
             System.out.println("Erreur : La machine n'est pas associée à un poste.");
         }
