@@ -13,9 +13,8 @@ public class Machine extends Equipement {
     private float cout;
     private float x;
     private float y;
-    private boolean dispo;
-    
-    private float t;
+    private boolean dispo;   
+    //private float t;
     private String etat;
     private Operation operations;
     private Poste poste;
@@ -27,13 +26,12 @@ public class Machine extends Equipement {
         //this.dispo=true;
          //}
     
-    public Machine(String refMachine, String dMachine, float x, float y, boolean dispo, float cout, float t, String etat, Operation operations, String type,Poste poste) {
-       super(refMachine, dMachine);
+    public Machine(String refMachine, String dMachine, float x, float y, boolean dispo, float cout, String etat, Operation operations, String type,Poste poste) {
+       super(refMachine, dMachine, cout);
         this.x = x;
         this.dispo = dispo;
         this.y = y;
         this.cout = cout;
-        this.t = t;
         this.etat = etat;
         this.operations = operations;
         this.type = type;
@@ -54,14 +52,6 @@ public class Machine extends Equipement {
 
     public float getY() {
         return y;
-    }
-
-    public float getCout() {
-        return cout;
-    }
-
-    public float getT() {
-        return t;
     }
 
     public String getEtat() {
@@ -92,14 +82,6 @@ public class Machine extends Equipement {
         this.y = y;
     }
 
-    public void setCout(float cout) {
-        this.cout = cout;
-    }
-
-    public void setT(float t) {
-        this.t = t;
-    }
-
     public void setEtat(String etat) {
         this.etat = etat;
     }
@@ -118,10 +100,10 @@ public class Machine extends Equipement {
       System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etat+", disponibilite:"+this.dispo);
       System.out.print("Operation de cette machine:");
       operations.afficheOperation();
-      System.out.println("cout horaire "+this.cout+"euro/h, temps t:"+this.t);
+      System.out.println("cout horaire "+this.cout+"euro/h");
    }
     
-    public void modifierMachine(float newx, float newy, float newcout, String newtype, float newt, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
+    public void modifierMachine(float newx, float newy, float newcout, String newtype, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
         if (newrefMachine != null && !newrefMachine.isEmpty()) {
         super.setRefEquipement(newrefMachine);}
        if (newdMachine != null && !newdMachine.isEmpty()) {
@@ -130,12 +112,12 @@ public class Machine extends Equipement {
             this.x=newx;
         }
         if (newy != 0) this.y = newy;
-        if (newcout != 0) this.cout = newcout;
+        if (newcout != 0) super.setCout(newcout);
         if (newtype != null && !newtype.isEmpty()) this.type = newtype;
-        if (newt != 0) this.t = newt;
+        //if (newt != 0) this.t = newt; comme on a elevé t de la classe Machine: plus besoin
         if (newetat != null && !newetat.isEmpty()) this.etat = newetat;
         if (null!=newoperations) this.operations=newoperations;
-        System.out.println("Machine modifiée !");
+        System.out.println("Machine modifiee !");
     }
     
     public boolean estOperationnel(){

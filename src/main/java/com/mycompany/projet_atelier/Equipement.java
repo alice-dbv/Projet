@@ -11,8 +11,12 @@ package com.mycompany.projet_atelier;
 public abstract class Equipement {
   private String dEquipement;
    private String refEquipement ;
+   float cout;
 
-    
+    public float getCout() {
+        return cout;
+    }
+
     public String getdEquipement() {
         return dEquipement;
     }
@@ -21,12 +25,16 @@ public abstract class Equipement {
         return refEquipement;
     }
     
-    public Equipement(String refEquipement, String dEquipement) {
-        this.refEquipement = refEquipement;
+    public Equipement(String refEquipement, String dEquipement, float cout) {
+        this.refEquipement = refEquipement; //mettre le nom de l'équipement, ex: scieuse, ponceuse
         this.dEquipement = dEquipement;
+        this.cout = cout;
             }
 
-    
+    public void setCout(float cout) {
+        this.cout = cout;
+    }
+
     public void setdEquipement(String dEquipement) {
         this.dEquipement = dEquipement;
     }
@@ -37,7 +45,7 @@ public abstract class Equipement {
     
 
     public void afficheEquipement(){
-        System.out.println("Equipement:"+this.dEquipement+", de reference "+this.refEquipement);
+        System.out.println("Equipement:"+this.dEquipement+", de reference "+this.refEquipement+", Cout horaire: "+ this.cout);
     }
    
     

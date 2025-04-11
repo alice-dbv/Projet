@@ -49,14 +49,14 @@ public class Operation {
     public Operation(String refOperation, String dOperation, String refEquipement, float dureeOperation) {
         this.refOperation = refOperation;
         this.dOperation = dOperation;
-        this.refEquipement = refEquipement;
+        this.refEquipement = refEquipement; //mettre le meme refEquipement que celui de l'équipement faisant l'opération (ex: scieuse, ponceuse...)
         this.dureeOperation = dureeOperation;
     }
     
    // Méthode pour calculer le coût d'une opération en fonction de l'équipement utilisé
     public float calculerCout(Equipement equipement) {
         if (equipement != null && equipement.getRefEquipement().equals(refEquipement)) {
-            //return dureeOperation * equipement.getCoutHoraire();
+            return dureeOperation * equipement.getCout();
         }
         return 0; // Équipement non trouvé ou non correspondant
     }

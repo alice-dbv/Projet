@@ -23,8 +23,14 @@ public class Poste extends Equipement {
     }
 
     public Poste(ArrayList<Machine> listeMachine, String dPoste, String refPoste) {
-        super(dPoste, refPoste);
+        float n=0;
+        super(dPoste, refPoste, n);
         this.listeMachine = listeMachine;
+        for (Machine i:this.listeMachine){
+            n=n+ i.getCout();
+        }
+        super.setCout(n);
+        
     }
     
     public void affichePoste(){

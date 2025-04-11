@@ -66,20 +66,20 @@ public class Gamme {
     }
     
     public void afficheGamme(){
-         System.out.println("Gamme [Référence: " + refGamme + "]");
-        System.out.println("Liste des équipements nécessaires (" + listeEquipement.size() + "):");
+         System.out.println("Gamme [Reference: " + refGamme + "]");
+        System.out.println("Liste des equipements necessaires (" + listeEquipement.size() + "):");
         for (Equipement e : listeEquipement) {
             e.afficheEquipement();
             System.out.println();
     }
-        System.out.println("Liste des opérations (" + listeOperation.size() + "):");
+        System.out.println("Liste des operations (" + listeOperation.size() + "):");
         for (int i = 0; i < listeOperation.size(); i++) {
-            System.out.println("Étape " + (i+1) + ":");
+            System.out.println("Etape " + (i+1) + ":");
             listeOperation.get(i).afficheOperation();
             System.out.println();
         }
-        System.out.println("Coût total de la gamme: " + coutGamme() + " €");
-        System.out.println("Durée totale de la gamme: " + dureeGamme() + " h");
+        System.out.println("Cout total de la gamme: " + coutGamme() + " euro");
+        System.out.println("Duree totale de la gamme: " + dureeGamme() + " h");
     }
     
     public float coutGamme(){
@@ -89,6 +89,8 @@ public class Gamme {
         for (Operation op : listeOperation) {
             for (Equipement eq : listeEquipement) {
                 if (eq.getRefEquipement().equals(op.getRefEquipement())) {
+                    System.out.println(eq.getRefEquipement());
+                    System.out.println(op.calculerCout(eq));
                     coutTotal += op.calculerCout(eq);
                     break;
                 }
