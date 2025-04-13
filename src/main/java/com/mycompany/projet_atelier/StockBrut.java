@@ -18,6 +18,9 @@ public class StockBrut {
     public void ajouterAuStock(String element) {
         listeStock.add(element);
     }
+    public void supprimerAuStock(String element) {
+        listeStock.remove(element);
+    }
 
     // Afficher le contenu du stock
     public void affiche() {
