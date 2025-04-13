@@ -60,6 +60,25 @@ public void modifierProduit(float nouveauCodeProduit, String nouveauDProduit) {
     }
 
 public void supprimerProduit(){
-    
+      this.codeProduit=0;
+        this.dproduit=null;
+        this.listeGamme.clear();
+        System.out.println("Produit supprimé !");   
+    }
+//Gestion gammes
+public void ajouterGamme (Gamme gamme){
+    if (!this.listeGamme.contains(gamme)){
+        this.listeGamme.add(gamme);
+        System.out.println("Gamme de fabrication ajoutée à ce produit");
+    }
 }
+   public void retirerGamme (Gamme gamme){
+    if (this.listeGamme.remove(gamme)){
+        this.listeGamme.add(gamme);
+        System.out.println("Gamme de fabrication retirée de ce produit");
+    }
 }
+
+
+}
+
