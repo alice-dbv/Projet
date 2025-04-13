@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Poste extends Equipement {
     private ArrayList<Machine> listeMachine;
-    //private String dPoste;
+    private String dPoste;
     private String refPoste;
 
     public ArrayList<Machine> getListeMachine() {

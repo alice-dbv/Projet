@@ -8,22 +8,25 @@ package com.mycompany.projet_atelier;
  *
  * @author lisaa
  */
+
+
 public class Machine extends Equipement {
     private String type;
     private float x;
     private float y;
     private boolean dispo;
-    private String etat;
+    private EtatMachine etatMachine;
     private Operation operations;
     private Poste poste;
 
+   
 
-    public Machine(String refMachine, String dMachine, float x, float y, boolean dispo, float cout, String etat, Operation operations, String type,Poste poste) {
+    public Machine(String refMachine, String dMachine, float x, float y,float cout, Operation operations, String type,Poste poste) {
        super(refMachine, dMachine, cout);
         this.x = x;
-        this.dispo = dispo;
+        this.dispo = true;
         this.y = y;
-        this.etat = etat;
+        this.etatMachine = EtatMachine.OPERATIONNEL;
         this.operations = operations;
         this.type = type;
         this.poste=null;
@@ -37,7 +40,7 @@ public class Machine extends Equipement {
         return poste;
     }
 
-    public boolean estDisponible() {
+    public boolean estDispo() {
         return dispo;
     }
 
@@ -45,8 +48,8 @@ public class Machine extends Equipement {
         return y;
     }
 
-    public String getEtat() {
-        return etat;
+    public EtatMachine getEtatMachine() {
+        return etatMachine;
     }
 
     public Operation getOperations() {
@@ -73,8 +76,8 @@ public class Machine extends Equipement {
         this.y = y;
     }
 
-    public void setEtat(String etat) {
-        this.etat = etat;
+    public void setEtatMachine(EtatMachine etatMachine) {
+        this.etatMachine = etatMachine;
     }
 
     public void setOperations(Operation operations) {
@@ -88,12 +91,12 @@ public class Machine extends Equipement {
     
     public void afficheMachine(){
      super.afficheEquipement();
-      System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etat+", disponibilite:"+this.dispo);
+      System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etatMachine+", disponibilite:"+this.dispo);
       System.out.print("Operation de cette machine:");
       operations.afficheOperation();
    }
     
-    public void modifierMachine(float newx, float newy, float newcout, String newtype, String newetat, Operation newoperations,String newrefMachine,String newdMachine){
+    public void modifierMachine(float newx, float newy, float newcout, String newtype, EtatMachine newetat, Operation newoperations,String newrefMachine,String newdMachine){
         if (newrefMachine != null && !newrefMachine.isEmpty()) {
         super.setRefEquipement(newrefMachine);}
        if (newdMachine != null && !newdMachine.isEmpty()) {
@@ -105,13 +108,13 @@ public class Machine extends Equipement {
         if (newcout != 0) super.setCout(newcout);
         if (newtype != null && !newtype.isEmpty()) this.type = newtype;
         //if (newt != 0) this.t = newt; comme on a elevé t de la classe Machine: plus besoin
-        if (newetat != null && !newetat.isEmpty()) this.etat = newetat;
+        if (newetat != null) this.etatMachine = newetat;
         if (null!=newoperations) this.operations=newoperations;
         System.out.println("Machine modifiee !");
     }
     
     public boolean estOperationnel(){
-        return false;
+        return this.etatMachine==EtatMachine.OPERATIONNEL; // vérifie si machine opérationnelle, on a une classe spéciale EtatMachine pour donner juste els différents types
     }
    public void supprimerMachine(){
        if (poste!= null){
@@ -122,6 +125,9 @@ public class Machine extends Equipement {
         }
     }
     
+    public float getCoutHoraire() { // Implémentation de la méthode abstraite de Equipement
+        return super.getCout();
+    }
    } 
     
     

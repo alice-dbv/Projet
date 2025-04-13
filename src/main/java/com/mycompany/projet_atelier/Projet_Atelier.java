@@ -17,9 +17,11 @@ public class Projet_Atelier {
         Operation Sciage = new Operation("sciage", "op1", "scieuse", 1);
         Operation Poncage = new Operation("poncage", "op2", "ponceuse", 2);
         Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
-        Machine Scieuse = new Machine("scieuse","m1", 0, 0, true, 3, "neuf", Sciage, "scie", null);
-        Machine Ponceuse = new Machine("ponceuse","m2", 4, 4, true, 5, "neuf", Poncage, "ponceuse", null);
-        Machine Four = new Machine("four", "m3", 2, 1, true, 6, "neuf", Cuisson, "four", null);
+        Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, Sciage, "scie", null);
+        Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,Poncage, "ponceuse", null);
+        Machine Four = new Machine("four", "m3", 2, 1,6, Cuisson, "four", null);
+        Scieuse.setDispo(false);
+        Scieuse.setEtatMachine(EtatMachine.ARRET_PANNE);
         Poste Poste1 = new Poste(new ArrayList<Machine>() {{add(Scieuse);}}, "1", "poste1");
         Scieuse.setPoste(Poste1);
         Ponceuse.setPoste(Poste1);
