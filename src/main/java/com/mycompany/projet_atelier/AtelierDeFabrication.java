@@ -35,6 +35,10 @@ public class AtelierDeFabrication {
         this.listEquipement = listEquipement;
     }
 
+public void affiche(){
+    System.out.println("Atelier de fabrication, nom:"+this.nom);
+    System.out.println("Equipements de cet atelier:"+listEquipement.size());
 
+}
 
 }
