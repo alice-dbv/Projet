@@ -49,12 +49,12 @@ public class Gamme {
         this.refGamme = refGamme;
         this.listeOperation.clear();
         this.listeEquipement.clear();
-        System.out.println("Nouvelle gamme créée avec la référence: " + refGamme);
+        System.out.println("Nouvelle gamme créée de référence: " + refGamme);
     }
-    
+    //Modifier la référence de la game
     public void modifierGamme(String newRefGamme) {
         this.refGamme = newRefGamme;
-        System.out.println("Référence de la gamme modifiée avec succès!");
+        System.out.println("Référence de la gamme modifiée!");
     
     }
     
@@ -62,17 +62,42 @@ public class Gamme {
      this.refGamme = null;
         this.listeOperation.clear();
         this.listeEquipement.clear();
-        System.out.println("Gamme supprimée avec succès!");   
+        System.out.println("Gamme supprimée !");   
     }
     
+   //Modifier gamme en ajoutant ou supprimant une opération ou un équipement
+    public void ajoutOperation(Operation operation){
+        this.listeOperation.add(operation);
+        System.out.println("Opération "+operation.getRefOperation()+"ajoutée!");
+    }
+    public void enleverOperation(Operation operation){
+       if (listeOperation.remove(operation)) {   //vérifier direct si l'opération est dans la gamme, et si oui elle est alors supprimée
+        System.out.println("Opération " + operation.getRefOperation() + " retirée !");
+    } else {
+        System.out.println("Cette opération n'est pas utilisée dans cette gamme");
+    }
+}
+ public void ajoutEquipement(Equipement equipement){
+        this.listeEquipement.add(equipement);
+        System.out.println("Equipement "+equipement.getRefEquipement()+"ajouté!");
+    }
+    
+ public void enleverEquipement(Equipement equipement){
+       if (listeEquipement.remove(equipement)) {   //vérifier direct si l'opération est dans la gamme, et si oui elle est alors supprimée
+        System.out.println("Equipement " + equipement.getRefEquipement() + " retiré!");
+    } else {
+        System.out.println("Cte équipement n'est pas utilisé pour cette gamme");
+    }
+}
+        
     public void afficheGamme(){
-         System.out.println("Gamme [Reference: " + refGamme + "]");
-        System.out.println("Liste des equipements necessaires (" + listeEquipement.size() + "):");
+         System.out.println("Gamme de réference: " + refGamme);
+        System.out.println("Liste des equipements necessaires " + listeEquipement.size() + ":");
         for (Equipement e : listeEquipement) {
             e.afficheEquipement();
             System.out.println();
     }
-        System.out.println("Liste des operations (" + listeOperation.size() + "):");
+        System.out.println("Liste des operations " + listeOperation.size() + ":");
         for (int i = 0; i < listeOperation.size(); i++) {
             System.out.println("Etape " + (i+1) + ":");
             listeOperation.get(i).afficheOperation();
