@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class AtelierDeFabrication {
     private String nom;
-    private ArrayList<Equipement> listEquipement;
+    private ArrayList<Equipement> listEquipement=new ArrayList<>();
 
     public String getNom() {
         return nom;

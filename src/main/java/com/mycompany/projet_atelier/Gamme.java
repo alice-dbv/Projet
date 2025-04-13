@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Gamme {
     private String refGamme ;
-    private ArrayList<Operation> listeOperation;
-    private ArrayList<Equipement> listeEquipement ;
+    private ArrayList<Operation> listeOperation=new ArrayList<>();
+    private ArrayList<Equipement> listeEquipement=new ArrayList<>() ;
 
     public String getRefGamme() {
         return refGamme;

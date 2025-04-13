@@ -4,6 +4,8 @@
  */
 package com.mycompany.projet_atelier;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -12,10 +14,20 @@ package com.mycompany.projet_atelier;
 public class Produit {
     private float codeProduit;
     private String dproduit;
+    private ArrayList<Gamme> listeGamme=new ArrayList<>(); // un produit peut avoir plusieurs gammes
 
-    public Produit(float codeProduit, String dproduit) {
+    public Produit(float codeProduit, String dproduit,ArrayList<Gamme> listeGamme) {
         this.codeProduit = codeProduit;
         this.dproduit = dproduit;
+        this.listeGamme=listeGamme;
+    }
+
+    public void setListeGamme(ArrayList<Gamme> listeGamme) {
+        this.listeGamme = listeGamme;
+    }
+
+    public ArrayList<Gamme> getListeGamme() {
+        return listeGamme;
     }
 
     public float getCodeProduit() {

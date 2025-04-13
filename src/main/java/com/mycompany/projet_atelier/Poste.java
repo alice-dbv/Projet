@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author lisaa
  */
 public class Poste extends Equipement {
-    private ArrayList<Machine> listeMachine;
+    private ArrayList<Machine> listeMachine=new ArrayList<>();
     private String dPoste;
     private String refPoste;
 
