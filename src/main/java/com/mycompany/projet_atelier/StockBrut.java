@@ -23,7 +23,7 @@ public class StockBrut {
     }
 
     // Afficher le contenu du stock
-    public void affiche() {
+    public void afficheStock() {
         if (listeStock.isEmpty()) {
             System.out.println("Le stock BRUT est vide.");
         } else {

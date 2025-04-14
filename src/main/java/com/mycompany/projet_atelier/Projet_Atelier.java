@@ -12,6 +12,16 @@ import java.util.ArrayList;
 public class Projet_Atelier {
 
     public static void main(String[] args) {
+    //TEST METHODES STOCKBRUT
+    StockBrut stockbrut = new StockBrut();
+    
+    stockbrut.ajouterAuStock("Bois");
+    stockbrut.ajouterAuStock("Acier");
+    
+    stockbrut.afficheStock();
+    
+
+
     // TEST METHODES PRODUIT 
         // Création des opérations et équipements
         //Operation sciage = new Operation("scieuse", "Sciage", "scieuse", 1);
@@ -19,13 +29,13 @@ public class Projet_Atelier {
     
 
     //TEST ATELIER DE FABRICATION
-        Poste Poste1 = new Poste(new ArrayList<Machine>(), "1", "poste de sciage");
-        Poste Poste2 = new Poste(new ArrayList<Machine>(),"2","Poste de perçage");
+        //Poste Poste1 = new Poste(new ArrayList<Machine>(), "1", "poste de sciage");
+        //Poste Poste2 = new Poste(new ArrayList<Machine>(),"2","Poste de perçage");
         
-        AtelierDeFabrication ChezJRH = new AtelierDeFabrication("Chez JRH", null, new ArrayList<Equipement>(), new ArrayList<>());
-        ChezJRH.ajoutEquipement(Poste2);
-        ChezJRH.enleverEquipement(Poste1);
-        System.out.println("Nb poste "+ ChezJRH.getNbPostes());
+        //AtelierDeFabrication ChezJRH = new AtelierDeFabrication("Chez JRH", null, new ArrayList<Equipement>(), new ArrayList<>());
+        //ChezJRH.ajoutEquipement(Poste2);
+        //ChezJRH.enleverEquipement(Poste1);
+        //System.out.println("Nb poste "+ ChezJRH.getNbPostes());
     // TEST METHODES PRODUIT    
     
         //Produit chaise = new Produit(101, "Chaise en bois", new ArrayList<>());
