@@ -92,6 +92,7 @@ public void affiche(){
     System.out.println("Atelier de fabrication, nom:"+this.nom);
     System.out.println("Equipements de cet atelier:"+listEquipement.size());
     System.out.println("Nombre de postes:"+nbPostes);
+    System.out.println("Stock:"+stockbrut);
 
 }
 
