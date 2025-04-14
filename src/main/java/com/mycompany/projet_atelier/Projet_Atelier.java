@@ -13,12 +13,12 @@ public class Projet_Atelier {
 
     public static void main(String[] args) {
     //TEST METHODES STOCKBRUT
-    StockBrut stockbrut = new StockBrut();
+    //StockBrut stockbrut = new StockBrut();
     
-    stockbrut.ajouterAuStock("Bois");
-    stockbrut.ajouterAuStock("Acier");
+    //stockbrut.ajouterAuStock("Bois");
+    //stockbrut.ajouterAuStock("Acier");
     
-    stockbrut.afficheStock();
+    //stockbrut.afficheStock();
     
 
 
@@ -68,10 +68,15 @@ public class Projet_Atelier {
     // TEST METHODES MACHINES ET OPERATIONS    
         //Operateur Ouvrier1 = new Operateur("scier", true, 001, "Alain", "Louris");
         //ChefAtelier Boss = new ChefAtelier(002, "JR", "Heu");
-        //Operation Sciage = new Operation("sciage", "op1", "scieuse", 1);
-        //Operation Poncage = new Operation("poncage", "op2", "ponceuse", 2);
-        //Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
-        //Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, Sciage, "scie", null);
+        Operation Sciage = new Operation("sciage", "op1", "scieuse", 1);
+        Operation Poncage = new Operation("poncage", "op2", "ponceuse", 2);
+        Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
+        ArrayList<Operation> listeOperation = new ArrayList<>();
+        listeOperation.add(Sciage);
+        Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, listeOperation, "scie", null);
+        Scieuse.afficheMachine();
+        Scieuse.ajouterOperationRealisable(Cuisson);
+        Scieuse.afficheMachine();
         
     // TEST METHODE POSTE
         //Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,Poncage, "ponceuse", null);

@@ -9,27 +9,27 @@ package com.mycompany.projet_atelier;
  * @author lisaa
  */
 
-
+import java.util.ArrayList;
 public class Machine extends Equipement {
     private String type;
     private float x;
     private float y;
     private boolean dispo;
     private EtatMachine etatMachine;
-    private Operation operations;
+    private ArrayList<Operation> operations = new ArrayList<>();    
     private Poste poste;
 
    
 
-    public Machine(String refMachine, String dMachine, float x, float y,float cout, Operation operations, String type,Poste poste) {
+    public Machine(String refMachine, String dMachine, float x, float y,float cout, ArrayList<Operation> listOperations, String type,Poste poste) {
        super(refMachine, dMachine, cout);
         this.x = x;
         this.dispo = true;
         this.y = y;
         this.etatMachine = EtatMachine.OPERATIONNEL;
-        this.operations = operations;
+        this.operations = new ArrayList<>(listOperations);
         this.type = type;
-        this.poste=null;
+        this.poste=poste;
     }
 
     public float getX() {
@@ -52,8 +52,8 @@ public class Machine extends Equipement {
         return etatMachine;
     }
 
-    public Operation getOperations() {
-        return operations;
+    public ArrayList<Operation> getOperations() {
+        return new ArrayList<>(operations);
     }
 
     public String getType() {
@@ -83,8 +83,9 @@ public class Machine extends Equipement {
         this.etatMachine = etatMachine;
     }
 
-    public void setOperations(Operation operations) {
+    public void setOperations(ArrayList<Operation> operations) {
         this.operations = operations;
+        
     }
 
     public void setType(String type) {
@@ -95,8 +96,11 @@ public class Machine extends Equipement {
     public void afficheMachine(){
      super.afficheEquipement();
       System.out.println("Machine de type:" +this.type+", localisation: "+this.x+","+this.y+", etat:"+this.etatMachine+", disponibilite:"+this.dispo);
-      System.out.print("Operation de cette machine:");
-      operations.afficheOperation();
+      System.out.println("Operation de cette machine:");
+      for (Operation op : operations) {
+        System.out.print(" - ");
+        op.afficheOperation(); 
+    }
    }
     
     public void modifierMachine(float newx, float newy, float newcout, String newtype, EtatMachine newetat, Operation newoperations,String newrefMachine,String newdMachine){
@@ -112,7 +116,9 @@ public class Machine extends Equipement {
         if (newtype != null && !newtype.isEmpty()) this.type = newtype;
         //if (newt != 0) this.t = newt; comme on a elevé t de la classe Machine: plus besoin
         if (newetat != null) this.etatMachine = newetat;
-        if (null!=newoperations) this.operations=newoperations;
+        if ((newoperations!=null)&&(!this.operations.contains(newoperations))){
+            operations.add(newoperations);
+        }
         System.out.println("Machine modifiee !");
     }
     
@@ -128,6 +134,24 @@ public class Machine extends Equipement {
        }
 
     }
+   
+   public void ajouterOperationRealisable(Operation operation){
+       if (!operations.contains(operation)) {
+        operations.add(operation);
+        System.out.println("Opération " + operation.getRefOperation() + " ajoutée à la machine.");
+    } else {
+        System.out.println("Cette opération est déjà réalisable par cette machine.");
+    }
+   }
+   
+   public void supprimerOperationRealisable(Operation operation){
+       if(operations.contains(operation)){
+           operations.remove(operation);
+           System.out.println("Operation "+ operation.getRefOperation()+" a été retirée de la machine");
+       } else {
+           System.out.println("La machine ne pouvais déjà par réaliser l'opération "+operation.getRefOperation() );
+       }
+   }
     
     public float getCoutHoraire() { // Implémentation de la méthode abstraite de Equipement
         return super.getCout();
