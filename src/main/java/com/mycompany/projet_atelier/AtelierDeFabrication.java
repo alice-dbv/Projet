@@ -76,12 +76,19 @@ public class AtelierDeFabrication {
         }
         return nombrePostes;
     }
+    
     public void ajoutEquipement(Equipement equipement) {
     this.listEquipement.add(equipement);
+    if (equipement instanceof Poste) {
+        nbPostes++;
+    }
     System.out.println("Equipement " + equipement.getRefEquipement() + " ajouté à l'atelier " + this.nom + "!");
 }
 
 public void enleverEquipement(Equipement equipement) {
+    if (equipement instanceof Poste) {
+        nbPostes=nbPostes-1;
+    }
     if (listEquipement.remove(equipement)) {
         System.out.println("Equipement " + equipement.getRefEquipement() + " retiré de l'atelier !");
     } else {

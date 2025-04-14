@@ -66,6 +66,9 @@ public class Machine extends Equipement {
 
     public void setPoste(Poste poste) {
         this.poste = poste;
+        if (poste != null && !poste.getListeMachine().contains(this)) {
+        poste.getListeMachine().add(this);
+    }
     }
 
     public void setDispo(boolean dispo) {
@@ -122,7 +125,8 @@ public class Machine extends Equipement {
            System.out.println("Machine " + super.getRefEquipement() + " supprimée du poste.");
         } else {
             System.out.println("Erreur : La machine n'est pas associée à un poste.");
-        }
+       }
+
     }
     
     public float getCoutHoraire() { // Implémentation de la méthode abstraite de Equipement
