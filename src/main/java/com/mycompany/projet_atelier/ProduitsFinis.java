@@ -44,7 +44,7 @@ public class ProduitsFinis {
     }
    
    
-      public void afficher(){
+      public void afficheProduitFini(){
     System.out.println("Le produit"+this.nom+" est fabriqué et disponible en"+ this.quantiteStock+" exemplaires.");
     System.out.println("Prix à l'unité:"+ this.prix+" euros.");
     }

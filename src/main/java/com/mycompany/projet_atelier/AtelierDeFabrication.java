@@ -15,7 +15,7 @@ public class AtelierDeFabrication {
     private ArrayList<Equipement> listEquipement=new ArrayList<>();
     int nbPostes=getNombrePostes();
     private StockBrut stockbrut;
-    private ProduitsFinis produitsFinis;
+    private StockProduitsFinis produitsFinis;
     private ChefAtelier chefAtelier;
 
     public String getNom() {
@@ -54,7 +54,7 @@ public class AtelierDeFabrication {
         this.listEquipement = listEquipement;
     }
 
-    public AtelierDeFabrication(String nom, StockBrut stockbrut, ProduitsFinis produitsFinis, ChefAtelier chefAtelier) {
+    public AtelierDeFabrication(String nom, StockBrut stockbrut, StockProduitsFinis produitsFinis, ChefAtelier chefAtelier) {
         this.nom = nom;
         this.stockbrut = stockbrut;
         this.produitsFinis = produitsFinis;
@@ -62,11 +62,11 @@ public class AtelierDeFabrication {
     }
 
 
-    public ProduitsFinis getProduitsFinis() {
+    public StockProduitsFinis getProduitsFinis() {
         return produitsFinis;
     }
 
-    public void setProduitsFinis(ProduitsFinis produitsFinis) {
+    public void setProduitsFinis(StockProduitsFinis produitsFinis) {
         this.produitsFinis = produitsFinis;
     }
 
@@ -109,7 +109,8 @@ public void affiche(){
     System.out.println("Atelier de fabrication, nom:"+this.nom+" et est dirigé par"+ chefAtelier);
     System.out.println("Equipements de cet atelier:"+listEquipement.size());
     System.out.println("Nombre de postes:"+nbPostes);
-    System.out.println("Stock:"+stockbrut);
+    stockbrut.afficheStock();
+    produitsFinis.afficheStockProduitsFinis();
 
 }
 
