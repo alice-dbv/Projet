@@ -23,14 +23,16 @@ public class Poste extends Equipement {
     }
 
     public Poste(ArrayList<Machine> listeMachine, String dPoste, String refPoste) {
-        float n=0;
-        super(dPoste, refPoste, n);
+        super(dPoste, refPoste, 0); // Initialisation --> coût sera recalculé
+        this.dPoste = dPoste;
+        this.refPoste = refPoste;
         this.listeMachine = listeMachine;
-        for (Machine i:this.listeMachine){
-            n=n+ i.getCout();
+
+        float n = 0;
+        for (Machine i : this.listeMachine){
+            n += i.getCout();
         }
         super.setCout(n);
-        
     }
     
     public void affichePoste(){
@@ -48,11 +50,10 @@ public class Poste extends Equipement {
        else{
            if (poste.getListeMachine().contains(machine)){
                poste.getListeMachine().remove(machine);
-               System.out.println("Machine supprimée du poste");
-}else{
+        }else{
                System.out.println("La machine n'existe pas dans ce poste");
-           }
-       }      
+        }
+      }      
     }
     
     

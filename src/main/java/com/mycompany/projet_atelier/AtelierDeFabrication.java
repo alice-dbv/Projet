@@ -15,7 +15,7 @@ public class AtelierDeFabrication {
     private ArrayList<Equipement> listEquipement=new ArrayList<>();
     int nbPostes=getNombrePostes();
     private StockBrut stockbrut;
-    private ArrayList<ProduitsFinis> produitsFinis = new ArrayList<>();
+    private ProduitsFinis produitsFinis;
 
     public String getNom() {
         return nom;
@@ -49,18 +49,18 @@ public class AtelierDeFabrication {
         this.listEquipement = listEquipement;
     }
 
-    public AtelierDeFabrication(String nom, StockBrut stockbrut,ArrayList<Equipement> listEquipement,ArrayList<ProduitsFinis> produitsfinis) {
+    public AtelierDeFabrication(String nom, StockBrut stockbrut,ArrayList<Equipement> listEquipement,ProduitsFinis produitsfinis) {
         this.nom = nom;
         this.stockbrut = stockbrut;
         this.listEquipement=listEquipement;
         this.produitsFinis=produitsfinis;
     }
 
-    public ArrayList<ProduitsFinis> getProduitsFinis() {
+    public ProduitsFinis getProduitsFinis() {
         return produitsFinis;
     }
 
-    public void setProduitsFinis(ArrayList<ProduitsFinis> produitsFinis) {
+    public void setProduitsFinis(ProduitsFinis produitsFinis) {
         this.produitsFinis = produitsFinis;
     }
 
@@ -76,12 +76,19 @@ public class AtelierDeFabrication {
         }
         return nombrePostes;
     }
+    
     public void ajoutEquipement(Equipement equipement) {
     this.listEquipement.add(equipement);
+    if (equipement instanceof Poste) {
+        nbPostes++;
+    }
     System.out.println("Equipement " + equipement.getRefEquipement() + " ajouté à l'atelier " + this.nom + "!");
 }
 
 public void enleverEquipement(Equipement equipement) {
+    if (equipement instanceof Poste) {
+        nbPostes=nbPostes-1;
+    }
     if (listEquipement.remove(equipement)) {
         System.out.println("Equipement " + equipement.getRefEquipement() + " retiré de l'atelier !");
     } else {

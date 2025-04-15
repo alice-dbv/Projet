@@ -47,7 +47,11 @@ public class Produit {
     }
     
 public void afficheProduit(){
-    System.out.println("Produit: code "+this.codeProduit+", désignation "+this.dproduit);
+    if((this.codeProduit!=0.0)&&(this.dproduit!=null)){
+        System.out.println("Produit: code "+this.codeProduit+", désignation "+this.dproduit);
+    }else{
+        System.out.println("Le produit n'existe pas");
+    }
 }
 public void modifierProduit(float nouveauCodeProduit, String nouveauDProduit) {
         if (nouveauCodeProduit>0) {
@@ -61,9 +65,9 @@ public void modifierProduit(float nouveauCodeProduit, String nouveauDProduit) {
 
 public void supprimerProduit(){
       this.codeProduit=0;
-        this.dproduit=null;
         this.listeGamme.clear();
-        System.out.println("Produit supprimé !");   
+        System.out.println("Produit "+dproduit+" supprimé !");  
+        this.dproduit=null;
     }
 //Gestion gammes
 public void ajouterGamme (Gamme gamme){
@@ -74,8 +78,9 @@ public void ajouterGamme (Gamme gamme){
 }
    public void retirerGamme (Gamme gamme){
     if (this.listeGamme.remove(gamme)){
-        this.listeGamme.add(gamme);
         System.out.println("Gamme de fabrication retirée de ce produit");
+    } else {
+        System.out.println("Cette gamme n’est pas associée à ce produit");
     }
 }
 
