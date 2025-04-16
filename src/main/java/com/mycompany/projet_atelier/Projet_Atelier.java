@@ -4,6 +4,9 @@
 
 package com.mycompany.projet_atelier;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.io.*;
+import java.util.*;
 
 /**
  *
@@ -12,6 +15,35 @@ import java.util.ArrayList;
 public class Projet_Atelier {
 
     public static void main(String[] args) {
+        System.out.println("fiabilité MACHINE");
+        ArrayList<String> machines = new ArrayList<>();
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("suiviMaintenance.txt"));
+            String ligne;
+
+            while ((ligne = in.readLine()) != null) {
+                StringTokenizer t = new StringTokenizer(ligne, " ");
+                if (t.hasMoreTokens()) {
+                    t.nextToken(); // saute 1er
+                    t.nextToken(); // saute 2ème
+                    String machine = t.nextToken();
+                    
+                    // Vérifie si la machine est déjà enregistrée
+                    if (!machines.contains(machine)) {
+                        machines.add(machine);
+                    }
+                }
+            }
+            in.close();
+            // Affichage du résultat
+            System.out.println("Machines trouvées :");
+            for (String m : machines) {
+                System.out.println(m);
+            }
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
+        }
+    
     //TEST METHODES STOCKBRUT
     //StockBrut stockbrut = new StockBrut();
     
@@ -20,8 +52,6 @@ public class Projet_Atelier {
     
     //stockbrut.afficheStock();
     
-
-
     // TEST METHODES PRODUIT 
         // Création des opérations et équipements
         //Operation sciage = new Operation("scieuse", "Sciage", "scieuse", 1);
@@ -73,19 +103,19 @@ public class Projet_Atelier {
         Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
         ArrayList<Operation> listeOperation = new ArrayList<>();
         listeOperation.add(Sciage);
-        Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, listeOperation, "scie", null);
-        Scieuse.afficheMachine();
-        Scieuse.ajouterOperationRealisable(Cuisson);
-        Scieuse.afficheMachine();
+        Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, listeOperation, "scie", null, new ArrayList<>());
+        //Scieuse.afficheMachine();
+        //Scieuse.ajouterOperationRealisable(Cuisson);
+        //Scieuse.afficheMachine();
         
     // TEST METHODE POSTE
-        //Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,Poncage, "ponceuse", null);
-        //Machine Four = new Machine("four", "m3", 2, 1,6, Cuisson, "four", null);
+        Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,new ArrayList<Operation>(Arrays.asList(Poncage)), "ponceuse", null, new ArrayList<>());
+        Machine Four = new Machine("four", "m3", 2, 1,6, new ArrayList<Operation>(Arrays.asList(Cuisson)), "four", null, new ArrayList<>());
         //Scieuse.setDispo(false);
         //Scieuse.setEtatMachine(EtatMachine.ARRET_PANNE);
-        //Poste Poste1 = new Poste(new ArrayList<Machine>() {{add(Scieuse);}}, "1", "poste1");
-        //Scieuse.setPoste(Poste1);
-        //Ponceuse.setPoste(Poste1);
+        Poste Poste1 = new Poste(new ArrayList<Machine>() {{add(Scieuse);add(Ponceuse);}}, "1", "poste1");
+        Scieuse.setPoste(Poste1);
+        Ponceuse.setPoste(Poste1);
         //Gamme Table = new Gamme("table1",new ArrayList<Operation>() {{add(Sciage);add(Poncage);}}, new ArrayList<Equipement>() {{add(Scieuse);add(Ponceuse);}});
         //System.out.println("nouvel Atelier");
         //Ouvrier1.afficher(); 
@@ -106,7 +136,6 @@ public class Projet_Atelier {
         //Scieuse.modifierMachine(1, 1, 2, "scie", "usee", Sciage, "scieuse", "m1");
         //System.out.println("Scieuse modifiee ");
         //Scieuse.afficheMachine();
-        //System.out.println(Table.coutGamme());
-        
-    }       
+        //System.out.println(Table.coutGamme());  
+    }  
 }

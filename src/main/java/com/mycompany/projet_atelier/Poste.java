@@ -44,14 +44,17 @@ public class Poste extends Equipement {
 }
     public void modifierPoste(Poste poste, Machine machine, boolean ajouter){
        if (ajouter){
+           if (poste.getListeMachine().contains(machine)){
+               System.out.println("cette machine est déjà contenu dans ce poste, vous ne pouvez pas l'ajouter");
+           }else{
            poste.getListeMachine().add(machine); 
            System.out.println("Machine"+ machine.getRefEquipement() + " ajoutée au poste " );
             }
-       else{
+       }else{
            if (poste.getListeMachine().contains(machine)){
                poste.getListeMachine().remove(machine);
         }else{
-               System.out.println("La machine n'existe pas dans ce poste");
+               System.out.println("La machine n'existe pas dans ce poste, vous ne pouvez donc pas l'enlever");
         }
       }      
     }
@@ -78,6 +81,16 @@ public class Poste extends Equipement {
         }
         return coutTotal;
     } 
+    
+    //méthode pour renvoyer opérations que peut faire le poste
+    public ArrayList<Operation> getListeOperations(){
+        ArrayList<Operation> listeOperations=new ArrayList<>();
+        for (Machine m : listeMachine) {
+            listeOperations.addAll(m.getOperations());
+        }
+        return listeOperations;
+    }
+    
     
 }
     

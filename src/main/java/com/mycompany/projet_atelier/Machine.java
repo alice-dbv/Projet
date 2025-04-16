@@ -18,10 +18,11 @@ public class Machine extends Equipement {
     private EtatMachine etatMachine;
     private ArrayList<Operation> operations = new ArrayList<>();    
     private Poste poste;
+    private ArrayList<Operateur> operateursMachine = new ArrayList<>();
 
    
 
-    public Machine(String refMachine, String dMachine, float x, float y,float cout, ArrayList<Operation> listOperations, String type,Poste poste) {
+    public Machine(String refMachine, String dMachine, float x, float y,float cout, ArrayList<Operation> listOperations, String type,Poste poste, ArrayList<Operateur> operateurMachine) {
        super(refMachine, dMachine, cout);
         this.x = x;
         this.dispo = true;
@@ -30,6 +31,11 @@ public class Machine extends Equipement {
         this.operations = new ArrayList<>(listOperations);
         this.type = type;
         this.poste=poste;
+        this.operateursMachine = new ArrayList<Operateur>(operateurMachine);
+    }
+
+    public ArrayList<Operateur> getOperateursMachine() {
+        return operateursMachine;
     }
 
     public float getX() {
@@ -91,7 +97,10 @@ public class Machine extends Equipement {
     public void setType(String type) {
         this.type = type;
     }
-    
+
+    public void setOperateursMachine(ArrayList<Operateur> operateursMachine) {
+        this.operateursMachine = operateursMachine;
+    }
     
     public void afficheMachine(){
      super.afficheEquipement();
@@ -155,10 +164,27 @@ public class Machine extends Equipement {
     
     public float getCoutHoraire() { // Implémentation de la méthode abstraite de Equipement
         return super.getCout();
+    } 
+    
+   public void ajouterOperateurMachine (Operateur operateur){
+       if (!operateursMachine.contains(operateur)) {
+        operateursMachine.add(operateur);
+        System.out.println("Opérateur " + operateur.getPrenom()+" "+operateur.getNom()+" ajouté à la machine.");
+    } else {
+        System.out.println("Cet opérateur peut déjà utiliser la machine");
     }
-   } 
-    
-    
+  }
+   
+   public void supprimerOperateurMachine(Operateur operateur){
+       if(operateursMachine.contains(operateur)){
+           operateursMachine.remove(operateur);
+           System.out.println("Operateur "+ operateur.getPrenom()+" "+ operateur.getNom()+" a été retire de la machine");
+       } else {
+           System.out.println("l'opérateur"+ operateur.getPrenom()+" "+ operateur.getNom()+"ne pouvait déjà pas utiliser cette machine");
+       }
+   }
+   
+}
     
     
 

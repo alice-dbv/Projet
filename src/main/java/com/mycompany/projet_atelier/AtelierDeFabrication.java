@@ -105,6 +105,7 @@ public void enleverEquipement(Equipement equipement) {
         System.out.println("Cet équipement n'est pas présent dans l'atelier " );
     }
 }
+
 public void affiche(){
     System.out.println("Atelier de fabrication, nom:"+this.nom+" et est dirigé par"+ chefAtelier);
     System.out.println("Equipements de cet atelier:"+listEquipement.size());
