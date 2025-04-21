@@ -26,14 +26,11 @@ public class TestFichier {
             while ((ligne = in.readLine()) != null) {
                 StringTokenizer t = new StringTokenizer(ligne, " ");
                 if (t.hasMoreTokens()) {
-                    t.nextToken(); // saute 1er
+                    String a = t.nextToken(); 
+                    System.out.println("a"+a);// saute 1er
                     t.nextToken(); // saute 2ème
                     String machine = t.nextToken();
-                    
-                    // Vérifie si la machine est déjà enregistrée
-                    if (!machines.contains(machine)) {
-                        machines.add(machine);
-                    }
+                    System.out.println(machine);
                 } else {
                     System.out.println("Ligne ignorée (pas assez d'informations) : " + ligne);
                 }
@@ -42,6 +39,9 @@ public class TestFichier {
         } catch (IOException e) {
             System.err.println("Erreur lors de la lecture du fichier : " + e.getMessage());
         }
-    
+    }
+    public static void main(String[] args) {
+        TestFichier test = new TestFichier();
+        test.Test(); // exécution de ta méthode
     }
 }
