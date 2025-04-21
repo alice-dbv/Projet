@@ -31,7 +31,7 @@ public class Machine extends Equipement {
         this.operations = new ArrayList<>(listOperations);
         this.type = type;
         this.poste=poste;
-        this.operateursMachine = new ArrayList<Operateur>(operateurMachine);
+        this.operateursMachine = new ArrayList<>(operateurMachine);
     }
 
     public ArrayList<Operateur> getOperateursMachine() {
