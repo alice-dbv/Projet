@@ -35,6 +35,8 @@ public class Projet_Atelier {
                     if (!machines.contains(machine)) {
                         machines.add(machine);
                     }
+                } else {
+                    System.out.println("Ligne ignorée (pas assez d'informations) : " + ligne);
                 }
             }
             in.close();          
@@ -93,7 +95,7 @@ public class Projet_Atelier {
             System.err.println("Erreur de lecture : " + e.getMessage());
         }
     }
-    //pour chaque machine, calculer la fiabilité
+    //trie les machines par ordre de fiabilité
     
     //TEST METHODES STOCKBRUT
     //StockBrut stockbrut = new StockBrut();
@@ -149,24 +151,24 @@ public class Projet_Atelier {
     // TEST METHODES MACHINES ET OPERATIONS    
         //Operateur Ouvrier1 = new Operateur("scier", true, 001, "Alain", "Louris");
         //ChefAtelier Boss = new ChefAtelier(002, "JR", "Heu");
-        Operation Sciage = new Operation("sciage", "op1", "scieuse", 1);
-        Operation Poncage = new Operation("poncage", "op2", "ponceuse", 2);
-        Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
-        ArrayList<Operation> listeOperation = new ArrayList<>();
-        listeOperation.add(Sciage);
-        Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, listeOperation, "scie", null, new ArrayList<>());
+        //Operation Sciage = new Operation("sciage", "op1", "scieuse", 1);
+        //Operation Poncage = new Operation("poncage", "op2", "ponceuse", 2);
+        //Operation Cuisson = new Operation("cuisson", "op3", "four", 5);
+        //ArrayList<Operation> listeOperation = new ArrayList<>();
+        //listeOperation.add(Sciage);
+        //Machine Scieuse = new Machine("scieuse","m1", 0, 0, 3, listeOperation, "scie", null, new ArrayList<>());
         //Scieuse.afficheMachine();
         //Scieuse.ajouterOperationRealisable(Cuisson);
         //Scieuse.afficheMachine();
         
     // TEST METHODE POSTE
-        Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,new ArrayList<Operation>(Arrays.asList(Poncage)), "ponceuse", null, new ArrayList<>());
-        Machine Four = new Machine("four", "m3", 2, 1,6, new ArrayList<Operation>(Arrays.asList(Cuisson)), "four", null, new ArrayList<>());
+    //Machine Ponceuse = new Machine("ponceuse","m2", 4, 4,5,new ArrayList<Operation>(Arrays.asList(Poncage)), "ponceuse", null, new ArrayList<>());
+        //Machine Four = new Machine("four", "m3", 2, 1,6, new ArrayList<Operation>(Arrays.asList(Cuisson)), "four", null, new ArrayList<>());
         //Scieuse.setDispo(false);
         //Scieuse.setEtatMachine(EtatMachine.ARRET_PANNE);
-        Poste Poste1 = new Poste(new ArrayList<Machine>() {{add(Scieuse);add(Ponceuse);}}, "1", "poste1");
-        Scieuse.setPoste(Poste1);
-        Ponceuse.setPoste(Poste1);
+        //Poste Poste1 = new Poste(new ArrayList<Machine>() {{add(Scieuse);add(Ponceuse);}}, "1", "poste1");
+        //Scieuse.setPoste(Poste1);
+        //Ponceuse.setPoste(Poste1);
         //Gamme Table = new Gamme("table1",new ArrayList<Operation>() {{add(Sciage);add(Poncage);}}, new ArrayList<Equipement>() {{add(Scieuse);add(Ponceuse);}});
         //System.out.println("nouvel Atelier");
         //Ouvrier1.afficher(); 
